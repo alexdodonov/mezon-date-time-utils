@@ -79,4 +79,26 @@ class DateTimeUtils
 
         return date('d', $dateTime) . ' ' . $dictionary[date('n', $dateTime)];
     }
+
+    /**
+     * Method caculates date difference in days
+     *
+     * @param string $dateFrom
+     *            starting date
+     * @param string $dateTo
+     *            ending date
+     * @return int amount of days between two dates
+     */
+    public static function dateDiffInDays(string $dateFrom, string $dateTo): int
+    {
+        $startTimeStamp = strtotime($dateFrom);
+        $endTimeStamp = strtotime($dateTo);
+
+        $timeDiff = abs($endTimeStamp - $startTimeStamp);
+
+        $numberDays = $timeDiff / 86400; // 86400 seconds in one day
+
+        // and you might want to convert to integer
+        return intval($numberDays);
+    }
 }
