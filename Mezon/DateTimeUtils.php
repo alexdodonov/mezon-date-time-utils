@@ -61,7 +61,7 @@ class DateTimeUtils
      */
     protected static function getDictionary(): array
     {
-        return json_decode(file_get_contents(__DIR__ . '/res/l8n/' . self::$locale . '.json'), true);
+        return json_decode(file_get_contents(__DIR__ . '/../Res/l8n/' . self::$locale . '.json'), true);
     }
 
     /**
@@ -73,6 +73,7 @@ class DateTimeUtils
      */
     public static function dayMonth(string $date): string
     {
+        // TODO make 2 unit tests because 1 error was missed
         $dictionary = self::getDictionary();
 
         $dateTime = strtotime($date);
